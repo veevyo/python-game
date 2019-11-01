@@ -92,15 +92,6 @@ while not game_over:
 	print(score)
 	if collision_check(enemy_list, player_pos):
 		game_over = True
-		if game_over == True:
-			pygame.draw.rect(screen, PLAYERCOLOR, (player_pos[0], player_pos[1], player_size, player_size))
-			pygame.display.update()
-			clock.tick(45)
-			screen = pygame.display.set_mode((WIDTH, HEIGHT))
-			screen.fill(BACKGROUND_COLOR)
-			text = "Game over!"
-			label = myFont.render(text, 1, (244,192,149))
-			screen.blit(label, (WIDTH-200, HEIGHT-40))
 	draw_enemies(enemy_list)
 	pygame.draw.rect(screen, PLAYERCOLOR, (player_pos[0], player_pos[1], player_size, player_size))
 	clock.tick(45)
