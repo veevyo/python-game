@@ -6,9 +6,10 @@ pygame.init()
 WIDTH = 800
 score = 0
 HEIGHT = 600
-SPEED = 15
+BASE_SPEED = 5
+SPEED = 0
 clock = pygame.time.Clock()
-player_size = 45
+player_size = 40
 player_pos = [WIDTH/2, HEIGHT-2*player_size]
 BACKGROUND_COLOR = (7,30,34)
 enemy_size = 50
@@ -16,16 +17,7 @@ enemy_pos = [random.randint(0,WIDTH-enemy_size), 0]
 enemy_list = [enemy_pos]
 myFont = pygame.font.SysFont("Arial", 35)
 def set_level(score, SPEED):
-	if score < 15:
-		SPEED = 6
-	elif score < 30:
-		SPEED = 10
-	elif score < 50:
-		SPEED = 13
-	elif score < 75:
-		SPEED = 16
-	else:
-		SPEED = 20
+	SPEED = (score / 7) + BASE_SPEED
 	return SPEED
 def drop_enemies(enemy_list):
 	delay = random.random()
@@ -67,7 +59,7 @@ while not game_over:
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			sys.exit()
-		if event.type == pygame.KEYDOWN:
+		elif event.type == pygame.KEYDOWN:
 			x = player_pos[0]
 			y = player_pos[1]
 			if event.key == pygame.K_LEFT:
