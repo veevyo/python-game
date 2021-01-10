@@ -56,21 +56,22 @@ pygame.display.set_caption("blockrush")
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 game_over = False
 while not game_over:
+	pressed = pygame.key.get_pressed()
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			sys.exit()
-		elif event.type == pygame.KEYDOWN:
-			x = player_pos[0]
-			y = player_pos[1]
-			if event.key == pygame.K_LEFT and x > 0:
-				x -= player_size
-			elif event.key == pygame.K_RIGHT and x < WIDTH - 60:
-				x += player_size
-			elif event.key == pygame.K_UP and y > 0:
-				y -= player_size
-			elif event.key == pygame.K_DOWN and y < HEIGHT - 60:
-				y += player_size
-			player_pos = [x, y]
+	x = player_pos[0]
+	y = player_pos[1]
+	if pressed[pygame.K_UP] and y > 0:
+		y -= 5
+	elif pressed[pygame.K_DOWN] and y < HEIGHT - 40:
+		y += 5
+	elif pressed[pygame.K_LEFT] and x > 0:
+		x -= 5
+	elif pressed[pygame.K_RIGHT] and x < WIDTH - 40:
+		x += 5
+	player_pos = [x, y]
+		
 	screen.fill(BACKGROUND_COLOR)
 	
 	if detect_collision(player_pos, enemy_pos):
