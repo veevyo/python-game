@@ -62,19 +62,20 @@ while not game_over:
 		elif event.type == pygame.KEYDOWN:
 			x = player_pos[0]
 			y = player_pos[1]
-			if event.key == pygame.K_LEFT:
+			if event.key == pygame.K_LEFT and x > 0:
 				x -= player_size
-			elif event.key == pygame.K_RIGHT:
+			elif event.key == pygame.K_RIGHT and x < WIDTH - 60:
 				x += player_size
-			elif event.key == pygame.K_UP:
+			elif event.key == pygame.K_UP and y > 0:
 				y -= player_size
-			elif event.key == pygame.K_DOWN:
+			elif event.key == pygame.K_DOWN and y < HEIGHT - 60:
 				y += player_size
 			player_pos = [x, y]
 	screen.fill(BACKGROUND_COLOR)
 	
 	if detect_collision(player_pos, enemy_pos):
 		game_over = True
+	
 	drop_enemies(enemy_list)
 	score = update_enemy_positions(enemy_list, score)
 	SPEED = set_level(score, SPEED)
