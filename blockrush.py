@@ -64,11 +64,11 @@ while not game_over:
 	y = player_pos[1]
 	if pressed[pygame.K_UP] and y > 0:
 		y -= 5
-	elif pressed[pygame.K_DOWN] and y < HEIGHT - 40:
+	if pressed[pygame.K_DOWN] and y < HEIGHT - 40:
 		y += 5
-	elif pressed[pygame.K_LEFT] and x > 0:
+	if pressed[pygame.K_LEFT] and x > 0:
 		x -= 5
-	elif pressed[pygame.K_RIGHT] and x < WIDTH - 40:
+	if pressed[pygame.K_RIGHT] and x < WIDTH - 40:
 		x += 5
 	player_pos = [x, y]
 		
