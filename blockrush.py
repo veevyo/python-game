@@ -11,13 +11,13 @@ SPEED = 0
 clock = pygame.time.Clock()
 player_size = 40
 player_pos = [WIDTH/2, HEIGHT-2*player_size]
-BACKGROUND_COLOR = (7,30,34)
+BACKGROUND_COLOR = (33,32,28)
 enemy_size = 50
 enemy_pos = [random.randint(0,WIDTH-enemy_size), 0]
 enemy_list = [enemy_pos]
 myFont = pygame.font.SysFont("Arial", 35)
 def set_level(score, SPEED):
-	SPEED = (score / 7) + BASE_SPEED
+	SPEED = (score / 10) + BASE_SPEED
 	return SPEED
 def drop_enemies(enemy_list):
 	delay = random.random()
@@ -50,8 +50,8 @@ def detect_collision(player_pos, enemy_pos):
 		if (e_y >= p_y and e_y < (p_y + player_size)) or (p_y >= e_y and p_y < (e_y+enemy_size)):
 			return True
 	return False
-ENEMYCOLOR = (238,46,49)
-PLAYERCOLOR = (29,120,116)
+ENEMYCOLOR = (252,122,87)
+PLAYERCOLOR = (252,215,87)
 pygame.display.set_caption("blockrush")
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 game_over = False
@@ -80,13 +80,19 @@ while not game_over:
 	drop_enemies(enemy_list)
 	score = update_enemy_positions(enemy_list, score)
 	SPEED = set_level(score, SPEED)
-	text = "Score:" + str(score) 
-	label = myFont.render(text, 1, (244,192,149))
-	screen.blit(label, (WIDTH-200, HEIGHT-40))
+	text = "Score: " + str(score) 
+	label = myFont.render(text, 1, (237,227,228))
 	print(score)
 	if collision_check(enemy_list, player_pos):
 		game_over = True
 	draw_enemies(enemy_list)
 	pygame.draw.rect(screen, PLAYERCOLOR, (player_pos[0], player_pos[1], player_size, player_size))
+	scoreval = 140
+	inc = 17
+	if len(str(score)) >= 2:
+		inc += 1
+		scoreval = scoreval + (inc * ((len(str(score))) - 1))	
+	screen.blit(label, (WIDTH-scoreval, HEIGHT-40))
+	
 	clock.tick(45)
 	pygame.display.update()
