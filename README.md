@@ -5,9 +5,8 @@ It's called blockrush. You use all 4 arrow keys to move. You can only move one s
 
 # To play on Windows:
 There are multiple methods for Windows play:
-1. Launch blockrush.exe. 
-2. Right click the blockrush.py file, go to "open with...", and then click "open with program on this PC." Now, you navigate to the blockrush directory and click on pyg.exe!
-3. Launch blockrush.bat.
+1. Right click the blockrush.py file, go to "open with...", and then click "open with program on this PC." Now, you navigate to the blockrush directory and click on pyg.exe!
+2. Launch blockrush.bat.
 # To play on Linux and macOS:
 There are multiple methods for Linux and macOS play:
 1. Open blockrush.exe through Wine
