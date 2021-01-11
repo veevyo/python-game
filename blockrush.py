@@ -8,6 +8,8 @@ score = 0
 HEIGHT = 600
 BASE_SPEED = 5
 SPEED = 0
+programIcon = pygame.image.load("icon.png")
+pygame.display.set_icon(programIcon)
 clock = pygame.time.Clock()
 player_size = 40
 player_pos = [WIDTH/2, HEIGHT-2*player_size]
