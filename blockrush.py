@@ -82,7 +82,6 @@ while not game_over:
 	SPEED = set_level(score, SPEED)
 	text = "Score: " + str(score) 
 	label = myFont.render(text, 1, (237,227,228))
-	print(score)
 	if collision_check(enemy_list, player_pos):
 		game_over = True
 	draw_enemies(enemy_list)
