@@ -1,7 +1,7 @@
 # blockrush
 A python game by ME :^) I originally used a tutorial, but have since made a lot of changes. The original tutorial is here: https://www.youtube.com/watch?v=-8n91btt5d8.
 
-It's called blockrush. You use all 4 arrow keys to move. Avoid the red blocks and you'll be good. The game gradually gets faster (and, therefore, harder) as your score increases.
+I've called it blockrush. You use all 4 arrow keys to move. Avoid the red blocks and you'll be good. The game gradually gets faster (and, therefore, harder) as your score increases.
 
 # To play on Windows:
 There are multiple methods for Windows play:
