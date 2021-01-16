@@ -40,7 +40,7 @@ def draw_enemies(enemy_list):
 		pygame.draw.rect(screen, ENEMYCOLOR, (enemy_pos[0], enemy_pos[1], enemy_size, enemy_size))
 def collision_check(enemy_list, player_pos):
 	for enemy_pos in enemy_list:
-		if detect_collision(enemy_pos, player_pos):
+		if detect_collision(player_pos, enemy_pos):
 			return True
 	return False
 def detect_collision(player_pos, enemy_pos):
